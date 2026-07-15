@@ -3,445 +3,394 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chương 5 - Kinh Tế Thị Trường Định Hướng XHCN & Quan Hệ Lợi Ích Kinh Tế</title>
+    <title>Chương 5 - KTTT Định hướng XHCN & Quan hệ Lợi ích Kinh tế</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- NAVIGATION -->
-    <nav id="navbar">
-        <div class="nav-brand">CHƯƠNG 5</div>
-        <ul class="nav-links">
-            <li><a href="#hero">Mở đầu</a></li>
-            <li><a href="#section1">Phần I</a></li>
-            <li><a href="#section2">Phần II</a></li>
-            <li><a href="#section3">Phần III</a></li>
-            <li><a href="#quiz-section">Trắc nghiệm</a></li>
-        </ul>
-        <div class="nav-toggle">☰</div>
-    </nav>
+    <!-- HEADER -->
+    <header id="header">
+        <a href="#hero" class="logo">
+            <span class="logo-icon">◆</span>
+            <span>Chương 5 <em>KTCT Mác-Lênin</em></span>
+        </a>
+        <nav class="main-nav">
+            <a href="#section1">Phần I</a>
+            <a href="#section2">Phần II</a>
+            <a href="#section3">Phần III</a>
+            <a href="#quiz-sec">Trắc nghiệm</a>
+            <button class="nav-chat-btn" onclick="toggleChat()">💬 Hỏi đáp</button>
+        </nav>
+        <button class="menu-btn" onclick="document.querySelector('.main-nav').classList.toggle('open')">☰</button>
+    </header>
 
     <!-- HERO -->
     <section id="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-particles" id="particles"></div>
-        <div class="hero-content">
-            <span class="hero-badge">Giáo trình Kinh tế Chính trị Mác - Lênin</span>
-            <h1 class="hero-title">Chương 5</h1>
-            <h2 class="hero-subtitle">Kinh Tế Thị Trường<br>Định Hướng Xã Hội Chủ Nghĩa<br>Và Các Quan Hệ Lợi Ích Kinh Tế<br>Tại Việt Nam</h2>
-            <div class="hero-scroll">
-                <span>Khám phá</span>
-                <div class="scroll-icon">↓</div>
+        <canvas id="heroCanvas"></canvas>
+        <div class="hero-inner">
+            <div class="hero-tag">Giáo trình Kinh tế Chính trị Mác - Lênin</div>
+            <h1>Kinh Tế Thị Trường<br><span class="gradient-text">Định Hướng Xã Hội Chủ Nghĩa</span><br>& Các Quan Hệ Lợi Ích Kinh Tế</h1>
+            <p class="hero-desc">Khám phá mô hình kinh tế tổng quát của Việt Nam trong thời kỳ quá độ lên CNXH —<br>nơi thị trường vận hành cùng định hướng xã hội, nơi lợi ích kinh tế trở thành động lực phát triển.</p>
+            <div class="hero-actions">
+                <a href="#section1" class="btn-primary">Khám phá ngay</a>
+                <a href="#quiz-sec" class="btn-outline">Làm trắc nghiệm</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-num">3</span><span class="stat-label">Phần chính</span></div>
+                <div class="stat"><span class="stat-num">5</span><span class="stat-label">Đặc trưng</span></div>
+                <div class="stat"><span class="stat-num">4</span><span class="stat-label">Quan hệ lợi ích</span></div>
+                <div class="stat"><span class="stat-num">10</span><span class="stat-label">Câu trắc nghiệm</span></div>
             </div>
         </div>
     </section>
 
-    <!-- OVERVIEW MINDMAP -->
-    <section id="overview" class="section">
-        <div class="container">
-            <h2 class="section-title reveal">Sơ Đồ Tư Duy Chương 5</h2>
-            <div class="mindmap reveal">
-                <div class="mindmap-center">CHƯƠNG 5</div>
-                <div class="mindmap-branches">
-                    <div class="branch branch-1" data-target="section1">
-                        <div class="branch-icon">Ⅰ</div>
-                        <h3>KTTT Định hướng XHCN</h3>
-                        <ul>
-                            <li>Khái niệm</li>
-                            <li>Tính tất yếu</li>
-                            <li>5 Đặc trưng</li>
-                        </ul>
-                    </div>
-                    <div class="branch branch-2" data-target="section2">
-                        <div class="branch-icon">Ⅱ</div>
-                        <h3>Hoàn thiện Thể chế</h3>
-                        <ul>
-                            <li>Sự cần thiết</li>
-                            <li>4 nhóm giải pháp</li>
-                        </ul>
-                    </div>
-                    <div class="branch branch-3" data-target="section3">
-                        <div class="branch-icon">Ⅲ</div>
-                        <h3>Quan hệ Lợi ích KT</h3>
-                        <ul>
-                            <li>Khái niệm & Vai trò</li>
-                            <li>4 Quan hệ cơ bản</li>
-                            <li>Vai trò Nhà nước</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <!-- PART I -->
+    <section id="section1" class="part-section">
+        <div class="part-header">
+            <span class="part-num">Phần I</span>
+            <h2>Kinh Tế Thị Trường Định Hướng XHCN<br>tại Việt Nam</h2>
         </div>
-    </section>
 
-    <!-- SECTION 1: KTTT ĐỊNH HƯỚNG XHCN -->
-    <section id="section1" class="section section-alt">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-number">Phần I</span>
-                <h2 class="section-title">Kinh Tế Thị Trường Định Hướng<br>Xã Hội Chủ Nghĩa Ở Việt Nam</h2>
-            </div>
-
-            <!-- Khái niệm -->
-            <div class="concept-card reveal">
-                <div class="concept-icon">📖</div>
-                <div class="concept-body">
-                    <h3>Khái niệm</h3>
+        <!-- Concept -->
+        <div class="content-block">
+            <div class="block-grid two-up">
+                <div class="glass-card">
+                    <div class="card-label">Định nghĩa</div>
                     <p>Kinh tế thị trường định hướng XHCN là <strong>nền kinh tế vận hành theo các quy luật của thị trường</strong>, đồng thời góp phần hướng tới từng bước xác lập một xã hội <strong>"dân giàu, nước mạnh, dân chủ, công bằng, văn minh"</strong>; có sự điều tiết của Nhà nước do Đảng Cộng sản Việt Nam lãnh đạo.</p>
                 </div>
+                <div class="glass-card">
+                    <div class="card-label">Bản chất</div>
+                    <p>Là <strong>kiểu nền KTTT phù hợp với Việt Nam</strong>, phản ánh trình độ phát triển và điều kiện lịch sử. Vừa bao hàm đặc trưng chung của KTTT thế giới, vừa có đặc trưng riêng phản ánh điều kiện chính trị, kinh tế - xã hội của Việt Nam.</p>
+                </div>
             </div>
+        </div>
 
-            <!-- Tính tất yếu -->
-            <h3 class="subsection-title reveal">Tính tất yếu khách quan</h3>
-            <div class="cards-grid reveal">
-                <div class="reason-card">
-                    <div class="reason-number">01</div>
+        <!-- Necessity -->
+        <div class="content-block">
+            <h3 class="block-title"><span>01</span> Tính tất yếu khách quan</h3>
+            <div class="block-grid three-up">
+                <div class="neo-card">
+                    <div class="neo-card-icon">🌏</div>
                     <h4>Xu hướng phát triển khách quan</h4>
-                    <p>Phù hợp với xu hướng phát triển của Việt Nam trong bối cảnh thế giới hiện nay. Không thể có một nền KTTT chung chung cho mọi quốc gia.</p>
+                    <p>Phù hợp xu hướng thế giới. Không có mô hình KTTT chung cho mọi quốc gia. Sự lựa chọn này không hề mâu thuẫn với tiến trình phát triển của đất nước.</p>
                 </div>
-                <div class="reason-card">
-                    <div class="reason-number">02</div>
+                <div class="neo-card">
+                    <div class="neo-card-icon">📈</div>
                     <h4>Tính ưu việt của KTTT</h4>
-                    <p>KTTT là phương thức phân bổ nguồn lực hiệu quả, thúc đẩy LLSX phát triển, kích thích tiến bộ kỹ thuật – công nghệ, nâng cao năng suất lao động.</p>
+                    <p>Phương thức phân bổ nguồn lực hiệu quả nhất. Thúc đẩy LLSX, kích thích tiến bộ kỹ thuật - công nghệ, nâng cao năng suất lao động và chất lượng sản phẩm.</p>
                 </div>
-                <div class="reason-card">
-                    <div class="reason-number">03</div>
+                <div class="neo-card">
+                    <div class="neo-card-icon">🎯</div>
                     <h4>Nguyện vọng của nhân dân</h4>
-                    <p>Phù hợp với khát vọng "dân giàu, nước mạnh, dân chủ, công bằng, văn minh" – không quốc gia nào muốn phát triển mà dân không giàu, nước không mạnh.</p>
+                    <p>Phù hợp khát vọng "dân giàu, nước mạnh, dân chủ, công bằng, văn minh". KTTT tồn tại lâu dài do điều kiện kinh tế - xã hội khách quan quy định.</p>
                 </div>
             </div>
+        </div>
 
-            <!-- Timeline -->
-            <h3 class="subsection-title reveal">Quá trình hình thành nhận thức của Đảng</h3>
-            <div class="timeline reveal">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-year">1986 – Đại hội VI</span>
-                        <p>Bắt đầu công cuộc đổi mới, quan niệm kinh tế hàng hóa có mặt tích cực cần vận dụng</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-year">2001 – Đại hội IX</span>
-                        <p>Khẳng định: KTTT định hướng XHCN là <strong>mô hình kinh tế tổng quát</strong> của thời kỳ quá độ</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-year">2011 – Đại hội XI</span>
-                        <p>Nền KTTT là nền kinh tế hàng hóa nhiều thành phần, vận hành theo cơ chế thị trường, có sự quản lý của Nhà nước</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-year">2016 – Đại hội XII</span>
-                        <p>Phát triển mới: KTTT vận hành <strong>đầy đủ, đồng bộ</strong> theo quy luật thị trường, hiện đại và hội nhập quốc tế</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-year">2021 – Đại hội XIII</span>
-                        <p>Khẳng định tiếp tục hoàn thiện mô hình KTTT định hướng XHCN – mô hình kinh tế tổng quát</p>
-                    </div>
-                </div>
+        <!-- Timeline -->
+        <div class="content-block">
+            <h3 class="block-title"><span>02</span> Quá trình nhận thức của Đảng</h3>
+            <div class="timeline-track" id="timelineTrack">
+                <div class="tl-card"><div class="tl-year">1986</div><div class="tl-tag">ĐH VI</div><p>Bắt đầu đổi mới, vận dụng mặt tích cực của kinh tế hàng hóa</p></div>
+                <div class="tl-card"><div class="tl-year">2001</div><div class="tl-tag">ĐH IX</div><p>Khẳng định KTTT định hướng XHCN là <strong>mô hình kinh tế tổng quát</strong></p></div>
+                <div class="tl-card"><div class="tl-year">2011</div><div class="tl-tag">ĐH XI</div><p>Nhiều thành phần, vận hành theo cơ chế thị trường, Nhà nước quản lý</p></div>
+                <div class="tl-card"><div class="tl-year">2016</div><div class="tl-tag">ĐH XII</div><p>Vận hành <strong>đầy đủ, đồng bộ</strong>, hiện đại & hội nhập quốc tế</p></div>
+                <div class="tl-card"><div class="tl-year">2021</div><div class="tl-tag">ĐH XIII</div><p>Tiếp tục hoàn thiện mô hình kinh tế tổng quát</p></div>
             </div>
+        </div>
 
-            <!-- 5 Đặc trưng -->
-            <h3 class="subsection-title reveal">5 Đặc trưng cơ bản</h3>
-            <div class="features-grid reveal">
-                <div class="feature-card" data-feature="1">
-                    <div class="feature-front">
-                        <span class="feature-icon">🎯</span>
-                        <h4>Về mục tiêu</h4>
+        <!-- 5 Characteristics -->
+        <div class="content-block">
+            <h3 class="block-title"><span>03</span> 5 Đặc trưng cơ bản</h3>
+            <div class="char-grid">
+                <div class="char-card" data-char="1">
+                    <div class="char-front">
+                        <span class="char-icon">🎯</span>
+                        <h4>Mục tiêu</h4>
                     </div>
-                    <div class="feature-back">
-                        <p>Phát triển LLSX, xây dựng CSVC-KT của CNXH; nâng cao đời sống nhân dân, thực hiện <strong>"dân giàu, nước mạnh, dân chủ, công bằng, văn minh"</strong></p>
-                    </div>
-                </div>
-                <div class="feature-card" data-feature="2">
-                    <div class="feature-front">
-                        <span class="feature-icon">🏛️</span>
-                        <h4>Về sở hữu & thành phần kinh tế</h4>
-                    </div>
-                    <div class="feature-back">
-                        <p>Nhiều hình thức sở hữu, nhiều thành phần kinh tế. <strong>Kinh tế nhà nước giữ vai trò chủ đạo</strong>, kinh tế tư nhân là động lực quan trọng. Các chủ thể bình đẳng, hợp tác, cạnh tranh theo pháp luật.</p>
+                    <div class="char-back">
+                        <p>Phát triển LLSX, xây dựng CSVC-KT của CNXH; thực hiện <strong>"dân giàu, nước mạnh, dân chủ, công bằng, văn minh"</strong></p>
                     </div>
                 </div>
-                <div class="feature-card" data-feature="3">
-                    <div class="feature-front">
-                        <span class="feature-icon">⚖️</span>
-                        <h4>Về quan hệ quản lý</h4>
+                <div class="char-card" data-char="2">
+                    <div class="char-front">
+                        <span class="char-icon">🏛️</span>
+                        <h4>Sở hữu & Thành phần KT</h4>
                     </div>
-                    <div class="feature-back">
-                        <p>Nhà nước pháp quyền XHCN của nhân dân, do nhân dân, vì nhân dân dưới sự lãnh đạo của <strong>Đảng Cộng sản</strong>, chịu sự làm chủ và giám sát của nhân dân.</p>
-                    </div>
-                </div>
-                <div class="feature-card" data-feature="4">
-                    <div class="feature-front">
-                        <span class="feature-icon">📊</span>
-                        <h4>Về quan hệ phân phối</h4>
-                    </div>
-                    <div class="feature-back">
-                        <p>Phân phối công bằng yếu tố sản xuất đầu vào; phân phối đầu ra chủ yếu theo <strong>kết quả lao động, hiệu quả kinh tế, mức đóng góp vốn</strong> + an sinh xã hội, phúc lợi.</p>
+                    <div class="char-back">
+                        <p>Nhiều hình thức sở hữu, nhiều thành phần kinh tế. <strong>Kinh tế nhà nước giữ vai trò chủ đạo</strong>, kinh tế tư nhân là động lực quan trọng.</p>
                     </div>
                 </div>
-                <div class="feature-card" data-feature="5">
-                    <div class="feature-front">
-                        <span class="feature-icon">🤝</span>
-                        <h4>Về gắn tăng trưởng với công bằng</h4>
+                <div class="char-card" data-char="3">
+                    <div class="char-front">
+                        <span class="char-icon">⚖️</span>
+                        <h4>Quan hệ quản lý</h4>
                     </div>
-                    <div class="feature-back">
-                        <p>Thực hiện <strong>tiến bộ và công bằng xã hội ngay trong từng chính sách</strong>, từng giai đoạn. Không "hy sinh" công bằng để chạy theo tăng trưởng, không chờ kinh tế cao mới làm.</p>
+                    <div class="char-back">
+                        <p>Nhà nước pháp quyền XHCN của dân, do dân, vì dân; <strong>Đảng Cộng sản lãnh đạo</strong>; chịu sự giám sát của nhân dân.</p>
+                    </div>
+                </div>
+                <div class="char-card" data-char="4">
+                    <div class="char-front">
+                        <span class="char-icon">📊</span>
+                        <h4>Quan hệ phân phối</h4>
+                    </div>
+                    <div class="char-back">
+                        <p>Phân phối theo <strong>lao động & hiệu quả kinh tế</strong>, theo mức đóng góp vốn + an sinh xã hội, phúc lợi xã hội.</p>
+                    </div>
+                </div>
+                <div class="char-card" data-char="5">
+                    <div class="char-front">
+                        <span class="char-icon">🤝</span>
+                        <h4>Gắn tăng trưởng với công bằng</h4>
+                    </div>
+                    <div class="char-back">
+                        <p>Thực hiện <strong>tiến bộ & công bằng xã hội ngay trong từng chính sách</strong>, từng giai đoạn. Không "hy sinh" công bằng để chạy theo tăng trưởng.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 2: HOÀN THIỆN THỂ CHẾ -->
-    <section id="section2" class="section">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-number">Phần II</span>
-                <h2 class="section-title">Hoàn Thiện Thể Chế Kinh Tế<br>Thị Trường Định Hướng XHCN</h2>
-            </div>
+    <!-- PART II -->
+    <section id="section2" class="part-section dark-section">
+        <div class="part-header">
+            <span class="part-num">Phần II</span>
+            <h2>Hoàn thiện Thể chế KTTT<br>Định hướng XHCN</h2>
+        </div>
 
-            <!-- Khái niệm Thể chế -->
-            <div class="definition-stack reveal">
-                <div class="def-item">
-                    <span class="def-label">Thể chế</span>
-                    <p>Quy tắc, luật pháp, bộ máy quản lý và cơ chế vận hành nhằm điều chỉnh hoạt động của con người trong một chế độ xã hội.</p>
-                </div>
-                <div class="def-arrow">→</div>
-                <div class="def-item">
-                    <span class="def-label">Thể chế kinh tế</span>
-                    <p>Hệ thống quy tắc, luật pháp, bộ máy quản lý và cơ chế vận hành nhằm điều chỉnh hành vi của các chủ thể kinh tế.</p>
-                </div>
-                <div class="def-arrow">→</div>
-                <div class="def-item def-highlight">
-                    <span class="def-label">Thể chế KTTT định hướng XHCN</span>
-                    <p>Hệ thống đường lối, chủ trương chiến lược, luật pháp, chính sách nhằm hướng tới xác lập đồng bộ các yếu tố thị trường hiện đại, góp phần thúc đẩy dân giàu, nước mạnh...</p>
-                </div>
+        <!-- Definition chain -->
+        <div class="content-block">
+            <div class="def-flow">
+                <div class="def-node"><span>Thể chế</span><p>Quy tắc, luật pháp, bộ máy quản lý & cơ chế vận hành</p></div>
+                <span class="def-flow-arrow">→</span>
+                <div class="def-node"><span>Thể chế Kinh tế</span><p>Điều chỉnh hành vi chủ thể KT, hành vi SXKD & các quan hệ kinh tế</p></div>
+                <span class="def-flow-arrow">→</span>
+                <div class="def-node highlight"><span>Thể chế KTTT định hướng XHCN</span><p>Hệ thống đường lối, luật pháp, chính sách hướng tới thị trường hiện đại, dân giàu nước mạnh</p></div>
             </div>
+        </div>
 
-            <!-- Sự cần thiết -->
-            <h3 class="subsection-title reveal">Sự cần thiết phải hoàn thiện</h3>
-            <div class="necessity-grid reveal">
-                <div class="necessity-card">
-                    <div class="necessity-icon">🔧</div>
-                    <h4>Thể chế chưa đồng bộ</h4>
-                    <p>Do mới hình thành và phát triển, việc tiếp tục hoàn thiện thể chế là yêu cầu mang tính khách quan để phát huy mặt tích cực, khắc phục mặt tiêu cực.</p>
+        <!-- Necessity + Solutions tabs -->
+        <div class="content-block">
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="tab-need">Sự cần thiết</button>
+                    <button class="tab-btn" data-tab="tab-sol">4 Nhóm nhiệm vụ</button>
                 </div>
-                <div class="necessity-card">
-                    <div class="necessity-icon">📋</div>
-                    <h4>Hệ thống chưa đầy đủ</h4>
-                    <p>Thể chế là sản phẩm của Nhà nước. Nhà nước pháp quyền XHCN phải xây dựng và hoàn thiện thể chế phục vụ lợi ích của nhân dân.</p>
-                </div>
-                <div class="necessity-card">
-                    <div class="necessity-icon">⚠️</div>
-                    <h4>Hiệu lực còn kém</h4>
-                    <p>Hệ thống thể chế còn nhiều khiếm khuyết, vừa chưa đủ mạnh, vừa hiệu quả thực thi chưa cao. Các yếu tố thị trường mới ở trình độ sơ khai.</p>
-                </div>
-            </div>
-
-            <!-- 4 nhóm giải pháp -->
-            <h3 class="subsection-title reveal">4 Nhóm nhiệm vụ hoàn thiện</h3>
-            <div class="solution-grid reveal">
-                <div class="solution-card">
-                    <span class="solution-letter">A</span>
-                    <h4>Hoàn thiện thể chế về sở hữu & phát triển các thành phần kinh tế</h4>
-                    <ul>
-                        <li>Thể chế hóa quyền tài sản</li>
-                        <li>Hoàn thiện pháp luật đất đai, tài nguyên</li>
-                        <li>Hoàn thiện pháp luật về sở hữu trí tuệ</li>
-                        <li>Phát triển doanh nghiệp, kinh tế tư nhân</li>
-                        <li>Thu hút FDI có chọn lọc</li>
-                    </ul>
-                </div>
-                <div class="solution-card">
-                    <span class="solution-letter">B</span>
-                    <h4>Phát triển đồng bộ các yếu tố thị trường & các loại thị trường</h4>
-                    <ul>
-                        <li>Thị trường hàng hóa, dịch vụ</li>
-                        <li>Thị trường vốn</li>
-                        <li>Thị trường công nghệ</li>
-                        <li>Thị trường sức lao động</li>
-                    </ul>
-                </div>
-                <div class="solution-card">
-                    <span class="solution-letter">C</span>
-                    <h4>Gắn kết tăng trưởng kinh tế với phát triển bền vững & hội nhập</h4>
-                    <ul>
-                        <li>Tiến bộ và công bằng xã hội</li>
-                        <li>Rà soát pháp luật phù hợp cam kết quốc tế</li>
-                        <li>Đa phương hóa, đa dạng hóa hợp tác</li>
-                    </ul>
-                </div>
-                <div class="solution-card">
-                    <span class="solution-letter">D</span>
-                    <h4>Nâng cao năng lực lãnh đạo của Đảng & hệ thống chính trị</h4>
-                    <ul>
-                        <li>Đảng lãnh đạo thông qua cương lĩnh, đường lối</li>
-                        <li>Nhà nước quản lý bằng pháp luật</li>
-                        <li>Phát huy vai trò làm chủ của nhân dân</li>
-                    </ul>
+                <div class="tab-panels">
+                    <div class="tab-panel active" id="tab-need">
+                        <div class="block-grid three-up">
+                            <div class="neo-card"><div class="neo-card-icon">🔧</div><h4>Chưa đồng bộ</h4><p>Mới hình thành, cần tiếp tục hoàn thiện để phát huy mặt tích cực, khắc phục tiêu cực của KTTT.</p></div>
+                            <div class="neo-card"><div class="neo-card-icon">📋</div><h4>Chưa đầy đủ</h4><p>Nhà nước là tác giả của thể chế chính thức, phải xây dựng thể chế phục vụ lợi ích của nhân dân.</p></div>
+                            <div class="neo-card"><div class="neo-card-icon">⚡</div><h4>Hiệu lực kém</h4><p>Còn nhiều khiếm khuyết, hiệu quả thực thi chưa cao, các yếu tố thị trường mới ở trình độ sơ khai.</p></div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="tab-sol">
+                        <div class="block-grid four-up">
+                            <div class="sol-card"><span class="sol-letter">A</span><h4>Sở hữu & Thành phần KT</h4><p>Thể chế hóa quyền tài sản; pháp luật đất đai, tài nguyên; sở hữu trí tuệ; phát triển doanh nghiệp tư nhân; thu hút FDI chọn lọc</p></div>
+                            <div class="sol-card"><span class="sol-letter">B</span><h4>Yếu tố & Loại thị trường</h4><p>Thị trường hàng hóa - dịch vụ, vốn, công nghệ, sức lao động; đảm bảo vận hành thông suốt, cộng hưởng</p></div>
+                            <div class="sol-card"><span class="sol-letter">C</span><h4>Gắn kết & Hội nhập</h4><p>Tiến bộ & công bằng xã hội; rà soát pháp luật phù hợp cam kết quốc tế; đa phương hóa, đa dạng hóa</p></div>
+                            <div class="sol-card"><span class="sol-letter">D</span><h4>Lãnh đạo của Đảng</h4><p>Đảng lãnh đạo qua cương lĩnh, đường lối; Nhà nước quản lý bằng pháp luật; phát huy vai trò làm chủ của nhân dân</p></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 3: QUAN HỆ LỢI ÍCH KINH TẾ -->
-    <section id="section3" class="section section-alt">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-number">Phần III</span>
-                <h2 class="section-title">Các Quan Hệ Lợi Ích Kinh Tế<br>Tại Việt Nam</h2>
-            </div>
+    <!-- PART III -->
+    <section id="section3" class="part-section">
+        <div class="part-header">
+            <span class="part-num">Phần III</span>
+            <h2>Quan Hệ Lợi Ích Kinh Tế<br>tại Việt Nam</h2>
+        </div>
 
-            <!-- Khái niệm + Vai trò -->
-            <div class="two-col reveal">
-                <div class="info-card">
-                    <h3>💡 Lợi ích kinh tế là gì?</h3>
-                    <p>Là <strong>lợi ích vật chất</strong> thu được khi thực hiện các hoạt động kinh tế của con người.</p>
-                    <p><strong>Bản chất:</strong> Phản ánh mục đích và động cơ của các quan hệ giữa các chủ thể trong nền sản xuất xã hội.</p>
-                    <p><em>"Những quan hệ kinh tế của một xã hội nhất định nào đó biểu hiện trước hết dưới hình thức lợi ích"</em> – Ph. Ăngghen</p>
+        <!-- What is economic interest -->
+        <div class="content-block">
+            <div class="block-grid two-up">
+                <div class="glass-card">
+                    <div class="card-label">Lợi ích kinh tế</div>
+                    <p>Là <strong>lợi ích vật chất</strong> thu được khi thực hiện các hoạt động kinh tế. Bản chất: phản ánh <strong>mục đích và động cơ</strong> của các quan hệ giữa các chủ thể trong nền sản xuất xã hội.</p>
+                    <p class="quote-inline">"Những quan hệ kinh tế của một xã hội nhất định biểu hiện trước hết dưới hình thức lợi ích" — Ph. Ăngghen</p>
                 </div>
-                <div class="info-card">
-                    <h3>⚡ Vai trò của lợi ích kinh tế</h3>
-                    <p><strong>1.</strong> Là <strong>động lực trực tiếp</strong> của các chủ thể và hoạt động kinh tế – xã hội. Mọi chủ thể đều hành động vì lợi ích chính đáng của mình.</p>
-                    <p><strong>2.</strong> Là <strong>cơ sở thúc đẩy</strong> sự phát triển các lợi ích khác (chính trị, xã hội, văn hóa).</p>
-                </div>
-            </div>
-
-            <!-- 4 Nhân tố -->
-            <h3 class="subsection-title reveal">4 Nhân tố ảnh hưởng đến quan hệ lợi ích kinh tế</h3>
-            <div class="factors-row reveal">
-                <div class="factor-item">
-                    <div class="factor-icon">🏭</div>
-                    <span>Trình độ phát triển của LLSX</span>
-                </div>
-                <div class="factor-connector">⟷</div>
-                <div class="factor-item">
-                    <div class="factor-icon">👥</div>
-                    <span>Địa vị trong quan hệ sản xuất</span>
-                </div>
-                <div class="factor-connector">⟷</div>
-                <div class="factor-item">
-                    <div class="factor-icon">📜</div>
-                    <span>Chính sách phân phối thu nhập</span>
-                </div>
-                <div class="factor-connector">⟷</div>
-                <div class="factor-item">
-                    <div class="factor-icon">🌐</div>
-                    <span>Hội nhập kinh tế quốc tế</span>
+                <div class="glass-card accent-border">
+                    <div class="card-label">Vai trò</div>
+                    <div class="role-point"><strong>1.</strong> Là <strong>động lực trực tiếp</strong> của các chủ thể và hoạt động kinh tế - xã hội. Mọi chủ thể đều hành động vì lợi ích chính đáng.</div>
+                    <div class="role-point"><strong>2.</strong> Là <strong>cơ sở thúc đẩy</strong> sự phát triển các lợi ích khác: chính trị, xã hội, văn hóa. Lợi ích kinh tế được thực hiện tạo điều kiện vật chất cho các lợi ích khác.</div>
                 </div>
             </div>
+        </div>
 
-            <!-- 4 Quan hệ lợi ích -->
-            <h3 class="subsection-title reveal">4 Quan hệ lợi ích kinh tế cơ bản</h3>
-            <div class="relations-diagram reveal">
-                <svg viewBox="0 0 900 520" class="rel-svg">
-                    <!-- Center -->
-                    <circle cx="450" cy="260" r="60" fill="#C41E3A" opacity="0.9"/>
-                    <text x="450" y="250" text-anchor="middle" fill="white" font-size="14" font-weight="700">QUAN HỆ</text>
-                    <text x="450" y="270" text-anchor="middle" fill="white" font-size="14" font-weight="700">LỢI ÍCH KT</text>
+        <!-- 4 factors -->
+        <div class="content-block">
+            <h3 class="block-title"><span>01</span> 4 Nhân tố ảnh hưởng</h3>
+            <div class="factor-row">
+                <div class="factor-chip">🏭 Trình độ phát triển của LLSX</div>
+                <div class="factor-chip">👥 Địa vị trong hệ thống QHSX</div>
+                <div class="factor-chip">📜 Chính sách phân phối thu nhập của Nhà nước</div>
+                <div class="factor-chip">🌐 Hội nhập kinh tế quốc tế</div>
+            </div>
+        </div>
 
-                    <!-- Node 1: NLĐ - NSDLĐ -->
-                    <line x1="390" y1="220" x2="200" y2="80" stroke="#C41E3A" stroke-width="2" stroke-dasharray="6,3"/>
-                    <rect x="30" y="30" width="170" height="70" rx="12" fill="white" stroke="#C41E3A" stroke-width="2" class="rel-node" data-rel="1"/>
-                    <text x="115" y="58" text-anchor="middle" fill="#333" font-size="12" font-weight="600">Người LĐ ⟷</text>
-                    <text x="115" y="78" text-anchor="middle" fill="#333" font-size="12" font-weight="600">Người SDLĐ</text>
-
-                    <!-- Node 2: Những NSDLĐ với nhau -->
-                    <line x1="510" y1="220" x2="700" y2="80" stroke="#C41E3A" stroke-width="2" stroke-dasharray="6,3"/>
-                    <rect x="700" y="30" width="170" height="70" rx="12" fill="white" stroke="#C41E3A" stroke-width="2" class="rel-node" data-rel="2"/>
-                    <text x="785" y="58" text-anchor="middle" fill="#333" font-size="12" font-weight="600">Người SDLĐ ⟷</text>
-                    <text x="785" y="78" text-anchor="middle" fill="#333" font-size="12" font-weight="600">Người SDLĐ</text>
-
-                    <!-- Node 3: Những NLĐ với nhau -->
-                    <line x1="390" y1="300" x2="200" y2="440" stroke="#C41E3A" stroke-width="2" stroke-dasharray="6,3"/>
-                    <rect x="30" y="415" width="170" height="70" rx="12" fill="white" stroke="#C41E3A" stroke-width="2" class="rel-node" data-rel="3"/>
-                    <text x="115" y="443" text-anchor="middle" fill="#333" font-size="12" font-weight="600">Người LĐ ⟷</text>
-                    <text x="115" y="463" text-anchor="middle" fill="#333" font-size="12" font-weight="600">Người LĐ</text>
-
-                    <!-- Node 4: Cá nhân - Nhóm - XH -->
-                    <line x1="510" y1="300" x2="700" y2="440" stroke="#C41E3A" stroke-width="2" stroke-dasharray="6,3"/>
-                    <rect x="700" y="415" width="170" height="70" rx="12" fill="white" stroke="#C41E3A" stroke-width="2" class="rel-node" data-rel="4"/>
-                    <text x="785" y="443" text-anchor="middle" fill="#333" font-size="12" font-weight="600">Cá nhân → Nhóm</text>
-                    <text x="785" y="463" text-anchor="middle" fill="#333" font-size="12" font-weight="600">→ Xã hội</text>
-                </svg>
-                <div class="rel-detail" id="relDetail">
-                    <p>👆 <em>Nhấp vào mỗi quan hệ để xem chi tiết</em></p>
+        <!-- 4 Relations -->
+        <div class="content-block">
+            <h3 class="block-title"><span>02</span> 4 Quan hệ lợi ích cơ bản</h3>
+            <div class="rel-accordion">
+                <div class="rel-item">
+                    <div class="rel-item-header" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="rel-item-icon">👤↔👤</span>
+                        <div><strong>Người lao động ↔ Người sử dụng lao động</strong><span class="rel-item-hint"> — Nhấp để xem chi tiết</span></div>
+                        <span class="rel-arrow">▾</span>
+                    </div>
+                    <div class="rel-item-body">
+                        <div class="rel-cols">
+                            <div class="rel-col unity"><h5>Thống nhất</h5><p>Doanh nghiệp hiệu quả → việc làm, thu nhập ổn định. NLĐ tích cực → tăng lợi nhuận doanh nghiệp. Tạo sự thống nhất là điều kiện quan trọng để cả hai bên cùng có lợi.</p></div>
+                            <div class="rel-col conflict"><h5>Mâu thuẫn</h5><p>Tại một thời điểm, lợi nhuận tăng → tiền lương giảm và ngược lại. NSDLĐ muốn cắt giảm chi phí; NLĐ đấu tranh đòi tăng lương, giảm giờ làm. Cần giải quyết hợp lý.</p></div>
+                            <div class="rel-col tool"><h5>Công cụ</h5><p>NLĐ: Công đoàn. NSDLĐ: Nghiệp đoàn, hiệp hội nghề nghiệp. Đấu tranh phải tuân thủ pháp luật.</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rel-item">
+                    <div class="rel-item-header" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="rel-item-icon">🏢↔🏢</span>
+                        <div><strong>Người SDLĐ ↔ Người SDLĐ</strong><span class="rel-item-hint"> — Nhấp để xem chi tiết</span></div>
+                        <span class="rel-arrow">▾</span>
+                    </div>
+                    <div class="rel-item-body">
+                        <p><strong>Thống nhất:</strong> Liên kết, hỗ trợ lẫn nhau; chia nhau lợi nhuận bình quân theo vốn đóng góp; tạo thành đội ngũ doanh nhân đóng góp cho phát triển đất nước.</p>
+                        <p><strong>Mâu thuẫn:</strong> Cạnh tranh quyết liệt trong cùng ngành và giữa các ngành (di chuyển vốn). Doanh nghiệp có giá trị cá biệt cao hơn giá trị xã hội sẽ thua lỗ, phá sản.</p>
+                    </div>
+                </div>
+                <div class="rel-item">
+                    <div class="rel-item-header" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="rel-item-icon">👥↔👥</span>
+                        <div><strong>Người lao động ↔ Người lao động</strong><span class="rel-item-hint"> — Nhấp để xem chi tiết</span></div>
+                        <span class="rel-arrow">▾</span>
+                    </div>
+                    <div class="rel-item-body">
+                        <p><strong>Thống nhất:</strong> Đoàn kết, thống nhất để thực hiện các yêu sách với giới chủ; thành lập tổ chức bảo vệ quyền lợi.</p>
+                        <p><strong>Mâu thuẫn:</strong> Cạnh tranh khi bán sức lao động → tiền lương giảm, một bộ phận bị sa thải nếu cung vượt cầu. Đoàn kết, giúp đỡ lẫn nhau trên cơ sở pháp luật là cần thiết.</p>
+                    </div>
+                </div>
+                <div class="rel-item">
+                    <div class="rel-item-header" onclick="this.parentElement.classList.toggle('open')">
+                        <span class="rel-item-icon">🧑→👥→🏛️</span>
+                        <div><strong>Cá nhân → Nhóm → Xã hội</strong><span class="rel-item-hint"> — Nhấp để xem chi tiết</span></div>
+                        <span class="rel-arrow">▾</span>
+                    </div>
+                    <div class="rel-item-body">
+                        <p><strong>Thống nhất:</strong> Cá nhân làm đúng pháp luật → lợi ích xã hội được thực hiện. Xã hội phát triển tạo môi trường thuận lợi cho cá nhân. Lợi ích xã hội là cơ sở của sự thống nhất.</p>
+                        <p><strong>Mâu thuẫn:</strong> Cá nhân/doanh nghiệp làm hàng giả, trốn thuế → tổn hại lợi ích xã hội. "Lợi ích nhóm" tiêu cực khi có sự tham gia của công chức, viên chức lạm dụng quyền lực cần được chống quyết liệt.</p>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Vai trò Nhà nước -->
-            <h3 class="subsection-title reveal">Vai trò Nhà nước trong bảo đảm hài hòa lợi ích</h3>
-            <div class="state-roles reveal">
-                <div class="state-role">
-                    <div class="sr-icon">🛡️</div>
-                    <h4>Bảo vệ lợi ích hợp pháp</h4>
-                    <p>Tạo môi trường thuận lợi: ổn định chính trị, pháp luật thông thoáng, kết cấu hạ tầng, môi trường văn hóa.</p>
+        <!-- State Role -->
+        <div class="content-block">
+            <h3 class="block-title"><span>03</span> Vai trò Nhà nước trong bảo đảm hài hòa</h3>
+            <div class="state-role-grid">
+                <div class="sr-card">
+                    <div class="sr-front">
+                        <span class="sr-icon">🛡️</span>
+                        <h4>Bảo vệ lợi ích hợp pháp</h4>
+                    </div>
+                    <div class="sr-back">
+                        <p>Ổn định chính trị; pháp luật thông thoáng; kết cấu hạ tầng; môi trường văn hóa phù hợp yêu cầu phát triển KTTT.</p>
+                    </div>
                 </div>
-                <div class="state-role">
-                    <div class="sr-icon">⚖️</div>
-                    <h4>Điều hòa lợi ích</h4>
-                    <p>Cá nhân – Doanh nghiệp – Xã hội thông qua chính sách phân phối thu nhập, phát triển LLSX và khoa học – công nghệ.</p>
+                <div class="sr-card">
+                    <div class="sr-front">
+                        <span class="sr-icon">⚖️</span>
+                        <h4>Điều hòa lợi ích</h4>
+                    </div>
+                    <div class="sr-back">
+                        <p>Chính sách phân phối thu nhập giữa cá nhân - doanh nghiệp - xã hội. Phát triển LLSX, khoa học - công nghệ để nâng cao thu nhập cho mọi chủ thể.</p>
+                    </div>
                 </div>
-                <div class="state-role">
-                    <div class="sr-icon">🚫</div>
-                    <h4>Kiểm soát, ngăn ngừa tiêu cực</h4>
-                    <p>Chống tham nhũng, "lợi ích nhóm", thu nhập bất hợp pháp; kiểm soát thu nhập của cán bộ, công chức.</p>
+                <div class="sr-card">
+                    <div class="sr-front">
+                        <span class="sr-icon">🚫</span>
+                        <h4>Kiểm soát tiêu cực</h4>
+                    </div>
+                    <div class="sr-back">
+                        <p>Chống tham nhũng, "lợi ích nhóm", thu nhập bất hợp pháp. Công khai, minh bạch. Kiểm soát thu nhập cán bộ, công chức.</p>
+                    </div>
                 </div>
-                <div class="state-role">
-                    <div class="sr-icon">🤝</div>
-                    <h4>Giải quyết mâu thuẫn</h4>
-                    <p>Phát hiện kịp thời, hòa giải khi xung đột; nguyên tắc: có sự tham gia của các bên, đặt lợi ích đất nước lên trên hết.</p>
+                <div class="sr-card">
+                    <div class="sr-front">
+                        <span class="sr-icon">🤝</span>
+                        <h4>Giải quyết mâu thuẫn</h4>
+                    </div>
+                    <div class="sr-back">
+                        <p>Phát hiện kịp thời; hòa giải khi xung đột. Nguyên tắc: có sự tham gia của các bên, đặt lợi ích đất nước lên trên hết.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- QUIZ -->
-    <section id="quiz-section" class="section">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-number">Kiểm tra</span>
-                <h2 class="section-title">Trắc Nghiệm Kiến Thức</h2>
-                <p class="quiz-desc">Cùng ôn lại những điểm quan trọng của Chương 5 nhé!</p>
+    <section id="quiz-sec" class="part-section dark-section">
+        <div class="part-header">
+            <span class="part-num">Kiểm tra</span>
+            <h2>Trắc nghiệm kiến thức</h2>
+        </div>
+        <div class="quiz-container" id="quizContainer">
+            <div class="quiz-progress"><div class="quiz-progress-bar" id="quizProgressBar"></div></div>
+            <p class="quiz-question" id="quizQ"></p>
+            <div class="quiz-options" id="quizO"></div>
+            <div class="quiz-feedback" id="quizFb"></div>
+            <div class="quiz-nav">
+                <button class="qnav-btn" id="quizPrevBtn" disabled>← Trước</button>
+                <span class="qnav-count" id="quizCount"></span>
+                <button class="qnav-btn" id="quizNextBtn">Sau →</button>
             </div>
-            <div class="quiz-container reveal" id="quizContainer">
-                <div class="quiz-progress">
-                    <div class="quiz-progress-bar" id="quizProgress"></div>
-                </div>
-                <div class="quiz-question" id="quizQuestion"></div>
-                <div class="quiz-options" id="quizOptions"></div>
-                <div class="quiz-feedback" id="quizFeedback"></div>
-                <div class="quiz-nav">
-                    <button class="quiz-btn" id="quizPrev" disabled>← Câu trước</button>
-                    <span class="quiz-counter" id="quizCounter"></span>
-                    <button class="quiz-btn" id="quizNext">Câu sau →</button>
-                </div>
-                <div class="quiz-result" id="quizResult" style="display:none;"></div>
-            </div>
+            <div class="quiz-result" id="quizResult"></div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <div class="container">
-            <p>© 2026 — Sản phẩm sáng tạo môn Kinh tế Chính trị Mác - Lênin</p>
-            <p>Nội dung trích từ Giáo trình Kinh tế Chính trị Mác - Lênin (Nhà xuất bản Chính trị Quốc gia Sự thật)</p>
+        <div class="footer-inner">
+            <p>Sản phẩm sáng tạo môn Kinh tế Chính trị Mác - Lênin</p>
+            <p>Nội dung trích từ Giáo trình KTCT Mác-Lênin (NXB Chính trị Quốc gia Sự thật)</p>
         </div>
     </footer>
+
+    <!-- CHATBOT -->
+    <div class="chatbot-widget" id="chatbotWidget">
+        <button class="chatbot-fab" id="chatFab" onclick="toggleChat()">
+            <span class="fab-icon">💬</span>
+        </button>
+        <div class="chatbot-panel" id="chatPanel">
+            <div class="chatbot-top">
+                <div>
+                    <strong>Trợ lý Chương 5</strong>
+                    <span class="chatbot-status">● Online</span>
+                </div>
+                <button class="chatbot-close-btn" onclick="toggleChat()">✕</button>
+            </div>
+            <div class="chatbot-body" id="chatBody">
+                <div class="msg bot-msg">
+                    <div class="msg-bubble">Xin chào! Tôi là trợ lý về Chương 5. Hãy hỏi bất kỳ câu hỏi nào về KTTT định hướng XHCN, thể chế, quan hệ lợi ích kinh tế, hay vai trò của Nhà nước nhé.</div>
+                </div>
+            </div>
+            <div class="chatbot-quick" id="chatQuick">
+                <button onclick="quickAsk('KTTT định hướng XHCN là gì?')">KTTT định hướng XHCN là gì?</button>
+                <button onclick="quickAsk('5 đặc trưng cơ bản?')">5 đặc trưng?</button>
+                <button onclick="quickAsk('Tính tất yếu khách quan?')">Tính tất yếu?</button>
+                <button onclick="quickAsk('4 quan hệ lợi ích?')">4 quan hệ lợi ích?</button>
+                <button onclick="quickAsk('Vai trò Nhà nước?')">Vai trò Nhà nước?</button>
+                <button onclick="quickAsk('Hoàn thiện thể chế?')">Hoàn thiện thể chế?</button>
+            </div>
+            <div class="chatbot-bottom">
+                <input type="text" id="chatInput" placeholder="Nhập câu hỏi..." onkeypress="if(event.key==='Enter')sendMsg()">
+                <button onclick="sendMsg()">➤</button>
+            </div>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
