@@ -40,7 +40,7 @@
                 <div class="stat"><span class="stat-num">3</span><span class="stat-label">Phần chính</span></div>
                 <div class="stat"><span class="stat-num">5</span><span class="stat-label">Đặc trưng</span></div>
                 <div class="stat"><span class="stat-num">4</span><span class="stat-label">Quan hệ lợi ích</span></div>
-                <div class="stat"><span class="stat-num">10</span><span class="stat-label">Câu trắc nghiệm</span></div>
+                <div class="stat"><span class="stat-num">50</span><span class="stat-label">Câu trắc nghiệm</span></div>
             </div>
         </div>
     </section>
@@ -331,23 +331,48 @@
         </div>
     </section>
 
-    <!-- QUIZ -->
+    <!-- QUIZ: Ai là triệu phú -->
     <section id="quiz-sec" class="part-section dark-section">
         <div class="part-header">
             <span class="part-num">Kiểm tra</span>
-            <h2>Trắc nghiệm kiến thức</h2>
+            <h2>Trắc nghiệm — Ai Là Triệu Phú?</h2>
+            <p class="quiz-subtitle">20 câu hỏi được lấy ngẫu nhiên từ kho 50 câu — mỗi lần tải trang sẽ khác</p>
         </div>
-        <div class="quiz-container" id="quizContainer">
-            <div class="quiz-progress"><div class="quiz-progress-bar" id="quizProgressBar"></div></div>
-            <p class="quiz-question" id="quizQ"></p>
-            <div class="quiz-options" id="quizO"></div>
-            <div class="quiz-feedback" id="quizFb"></div>
-            <div class="quiz-nav">
-                <button class="qnav-btn" id="quizPrevBtn" disabled>← Trước</button>
-                <span class="qnav-count" id="quizCount"></span>
-                <button class="qnav-btn" id="quizNextBtn">Sau →</button>
+        <div class="quiz-layout">
+            <div class="quiz-main">
+                <div class="quiz-progress"><div class="quiz-progress-bar" id="quizProgressBar"></div></div>
+                <p class="quiz-question" id="quizQ"></p>
+                <div class="quiz-options" id="quizO"></div>
+                <div class="quiz-nav">
+                    <button class="qnav-btn" id="quizPrevBtn" disabled>← Trước</button>
+                    <span class="qnav-count" id="quizCount"></span>
+                    <button class="qnav-btn" id="quizNextBtn">Sau →</button>
+                </div>
+                <div class="quiz-result" id="quizResult"></div>
             </div>
-            <div class="quiz-result" id="quizResult"></div>
+            <div class="quiz-sidebar">
+                <div class="mc-character" id="mcCharacter">
+                    <div class="mc-avatar">
+                        <div class="mc-face">
+                            <div class="mc-eyes">
+                                <div class="mc-eye mc-eye-left"></div>
+                                <div class="mc-eye mc-eye-right"></div>
+                            </div>
+                            <div class="mc-mouth" id="mcMouth"></div>
+                        </div>
+                        <div class="mc-body">
+                            <div class="mc-tie"></div>
+                        </div>
+                    </div>
+                    <div class="mc-speech" id="mcSpeech">
+                        <p>Chào mừng đến với "Ai Là Triệu Phú"! Tôi là MC của bạn. Hãy chọn đáp án đúng nhé!</p>
+                    </div>
+                    <div class="mc-name">MC Trợ lý</div>
+                </div>
+                <div class="money-ladder" id="moneyLadder">
+                    <div class="money-title">💰 Cột mốc</div>
+                </div>
+            </div>
         </div>
     </section>
 
