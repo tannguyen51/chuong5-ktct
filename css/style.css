@@ -538,7 +538,6 @@ body {
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: var(--radius-lg);
     padding: 16px 0;
-    max-height: 600px; overflow-y: auto;
 }
 .money-ladder::-webkit-scrollbar { width: 4px; }
 .money-ladder::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
@@ -674,7 +673,6 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.06
     .quiz-layout { grid-template-columns: 1fr; }
     .quiz-sidebar { position: static; }
     .quiz-card { margin-top: 36px; }
-    .money-ladder { max-height: 200px; }
     .mc-avatar { width: 80px; height: 110px; }
     .mc-face { width: 64px; height: 64px; }
 }
