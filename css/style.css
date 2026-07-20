@@ -562,6 +562,10 @@ body {
     color: var(--green); font-weight: 600;
     border-left-color: var(--green);
 }
+.money-rung.failed {
+    color: #e74c3c; font-weight: 600;
+    border-left-color: #e74c3c;
+}
 
 /* ===== FOOTER ===== */
 footer { background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.06); }

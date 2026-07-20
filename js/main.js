@@ -477,14 +477,19 @@ function buildMoneyLadder() {
 }
 
 function updateMoneyLadder() {
-    const rungs = moneyLadderEl.querySelectorAll('.money-rung');
-    rungs.forEach(rung => {
-        const rungQ = parseInt(rung.getAttribute('data-q'));
-        rung.classList.remove('active', 'passed');
+    var rungs = moneyLadderEl.querySelectorAll('.money-rung');
+    rungs.forEach(function(rung) {
+        var rungQ = parseInt(rung.getAttribute('data-q'));
+        rung.classList.remove('active', 'passed', 'failed');
         if (rungQ === qIdx + 1 && !qDone) {
             rung.classList.add('active');
         } else if (rungQ <= qIdx && qAnswers[rungQ - 1] !== null) {
-            rung.classList.add('passed');
+            var q = quizData[rungQ - 1];
+            if (qAnswers[rungQ - 1] === q.ans) {
+                rung.classList.add('passed');
+            } else {
+                rung.classList.add('failed');
+            }
         }
     });
 }
@@ -525,9 +530,9 @@ function renderQuiz() {
         btn.textContent = String.fromCharCode(65 + i) + '. ' + opt;
         if (qAnswers[qIdx] === i) {
             btn.classList.add('selected');
-            if (qDone) btn.classList.add(i === q.ans ? 'correct' : 'incorrect');
+            if (answered) btn.classList.add(i === q.ans ? 'correct' : 'incorrect');
         }
-        if (qDone && i === q.ans && qAnswers[qIdx] !== i) btn.classList.add('correct');
+        if (answered && i === q.ans && qAnswers[qIdx] !== i) btn.classList.add('correct');
         if (answered || qDone) btn.disabled = true;
         btn.addEventListener('click', function() {
             if (qDone || qAnswers[qIdx] !== null) return;
