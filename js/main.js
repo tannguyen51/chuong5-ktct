@@ -412,30 +412,30 @@ const mcMilestoneMsgs = {
     20: "20 câu hoàn thành! Bạn chính là Triệu Phú Kiến Thức Chương 5! 🏆👑"
 };
 
-const mcIntroMsg = 'Chào mừng đến với "Ai Là Triệu Phú Kiến Thức"! Tôi là MC của bạn. Cùng chinh phục 20 câu hỏi Chương 5 nào! 🎯';
+const mcIntroMsg = 'Chào mừng đến với Quiz Chương 5! Hãy chọn đáp án đúng nhé! 🤓';
 
 // ---- MONEY LADDER MILESTONES ----
 const moneyLevels = [
-    { q: 20, label: '🏆 20 — Triệu Phú Kiến Thức', cls: 'top' },
-    { q: 19, label: '💰 19 — 900.000 điểm', cls: '' },
-    { q: 18, label: '💰 18 — 800.000 điểm', cls: '' },
-    { q: 17, label: '💰 17 — 700.000 điểm', cls: '' },
-    { q: 16, label: '💰 16 — 600.000 điểm', cls: '' },
-    { q: 15, label: '⭐ 15 — Cột mốc quan trọng', cls: 'safe' },
-    { q: 14, label: '💎 14 — 450.000 điểm', cls: '' },
-    { q: 13, label: '💎 13 — 400.000 điểm', cls: '' },
-    { q: 12, label: '💎 12 — 350.000 điểm', cls: '' },
-    { q: 11, label: '💎 11 — 300.000 điểm', cls: '' },
-    { q: 10, label: '⭐ 10 — Cột mốc an toàn', cls: 'safe' },
-    { q: 9, label: '🔹 9 — 200.000 điểm', cls: '' },
-    { q: 8, label: '🔹 8 — 150.000 điểm', cls: '' },
-    { q: 7, label: '🔹 7 — 100.000 điểm', cls: '' },
-    { q: 6, label: '🔹 6 — 75.000 điểm', cls: '' },
-    { q: 5, label: '⭐ 5 — Mốc đầu tiên', cls: 'safe' },
-    { q: 4, label: '🔸 4 — 40.000 điểm', cls: '' },
-    { q: 3, label: '🔸 3 — 20.000 điểm', cls: '' },
-    { q: 2, label: '🔸 2 — 10.000 điểm', cls: '' },
-    { q: 1, label: '🔸 1 — 5.000 điểm', cls: '' }
+    { q: 20, label: '20 — TRIỆU PHÚ KIẾN THỨC 🏆', cls: 'top' },
+    { q: 19, label: '19 — 950.000', cls: '' },
+    { q: 18, label: '18 — 900.000', cls: '' },
+    { q: 17, label: '17 — 850.000', cls: '' },
+    { q: 16, label: '16 — 800.000', cls: '' },
+    { q: 15, label: '15 — CỘT MỐC QUAN TRỌNG ⭐', cls: 'safe' },
+    { q: 14, label: '14 — 700.000', cls: '' },
+    { q: 13, label: '13 — 650.000', cls: '' },
+    { q: 12, label: '12 — 600.000', cls: '' },
+    { q: 11, label: '11 — 550.000', cls: '' },
+    { q: 10, label: '10 — CỘT MỐC AN TOÀN ⭐', cls: 'safe' },
+    { q: 9,  label: '9  — 450.000', cls: '' },
+    { q: 8,  label: '8  — 400.000', cls: '' },
+    { q: 7,  label: '7  — 350.000', cls: '' },
+    { q: 6,  label: '6  — 300.000', cls: '' },
+    { q: 5,  label: '5  — MỐC ĐẦU TIÊN ⭐', cls: 'safe' },
+    { q: 4,  label: '4  — 200.000', cls: '' },
+    { q: 3,  label: '3  — 150.000', cls: '' },
+    { q: 2,  label: '2  — 100.000', cls: '' },
+    { q: 1,  label: '1  — 50.000', cls: '' }
 ];
 
 // ---- QUIZ STATE ----
@@ -453,10 +453,19 @@ const nextEl = document.getElementById('quizNextBtn');
 const countEl = document.getElementById('quizCount');
 const progEl = document.getElementById('quizProgressBar');
 const resEl = document.getElementById('quizResult');
-const mcSpeechEl = document.getElementById('mcSpeech');
-const mcCharEl = document.getElementById('mcCharacter');
-const mcMouthEl = document.getElementById('mcMouth');
+const mcIconEl = document.getElementById('mcIcon');
+const mcFaceEl = document.getElementById('mcIconFace');
+const mcBubbleEl = document.getElementById('mcIconBubble');
 const moneyLadderEl = document.getElementById('moneyLadder');
+
+// ---- MC EMOJI FACES ----
+const mcFaces = {
+    happy: '😎',
+    sad: '😟',
+    celebrate: '🥳',
+    neutral: '🤓',
+    thinking: '🤔'
+};
 
 // ---- BUILD MONEY LADDER ----
 function buildMoneyLadder() {
@@ -482,27 +491,14 @@ function updateMoneyLadder() {
 
 // ---- MC REACTIONS ----
 function mcSpeak(msg, mood) {
-    mcSpeechEl.querySelector('p').textContent = msg;
-    // Mood: 'happy', 'sad', 'neutral', 'celebrate'
-    mcCharEl.classList.remove('mc-happy', 'mc-sad', 'mc-neutral', 'mc-celebrate');
-    mcMouthEl.classList.remove('mouth-happy', 'mouth-sad', 'mouth-neutral', 'mouth-celebrate');
-
+    mcBubbleEl.querySelector('span').textContent = msg;
+    mcIconEl.classList.remove('mc-happy', 'mc-sad', 'mc-neutral', 'mc-celebrate');
+    mcFaceEl.textContent = mcFaces[mood] || mcFaces.neutral;
     switch (mood) {
-        case 'happy':
-            mcCharEl.classList.add('mc-happy');
-            mcMouthEl.classList.add('mouth-happy');
-            break;
-        case 'sad':
-            mcCharEl.classList.add('mc-sad');
-            mcMouthEl.classList.add('mouth-sad');
-            break;
-        case 'celebrate':
-            mcCharEl.classList.add('mc-celebrate');
-            mcMouthEl.classList.add('mouth-celebrate');
-            break;
-        default:
-            mcCharEl.classList.add('mc-neutral');
-            mcMouthEl.classList.add('mouth-neutral');
+        case 'happy':    mcIconEl.classList.add('mc-happy');    break;
+        case 'sad':      mcIconEl.classList.add('mc-sad');      break;
+        case 'celebrate':mcIconEl.classList.add('mc-celebrate');break;
+        default:         mcIconEl.classList.add('mc-neutral');  break;
     }
 }
 
@@ -513,6 +509,7 @@ function getRandomMsg(arr) {
 // ---- RENDER QUIZ ----
 function renderQuiz() {
     const q = quizData[qIdx];
+    const answered = qAnswers[qIdx] !== null;
     qEl.textContent = `Câu ${qIdx + 1}: ${q.q}`;
     oEl.innerHTML = '';
 
@@ -525,10 +522,10 @@ function renderQuiz() {
             if (qDone) btn.classList.add(i === q.ans ? 'correct' : 'incorrect');
         }
         if (qDone && i === q.ans && qAnswers[qIdx] !== i) btn.classList.add('correct');
+        if (answered || qDone) btn.disabled = true;
         btn.addEventListener('click', () => {
-            if (qDone) return;
+            if (qDone || qAnswers[qIdx] !== null) return;
             qAnswers[qIdx] = i;
-            // MC reacts on selection
             if (i === q.ans) {
                 mcSpeak(getRandomMsg(mcCorrectMsgs), 'happy');
             } else {
@@ -544,15 +541,16 @@ function renderQuiz() {
     countEl.textContent = `${qIdx + 1} / ${quizData.length}`;
     progEl.style.width = `${((qIdx + 1) / quizData.length) * 100}%`;
     updateMoneyLadder();
+
+    // Update MC icon for unanswered question
+    if (!answered && !qDone) {
+        mcSpeak('Chọn đáp án đúng nhé!', 'thinking');
+    }
 }
 
 // ---- NAVIGATION ----
 prevEl.addEventListener('click', () => {
-    if (qIdx > 0) {
-        qIdx--;
-        renderQuiz();
-        mcSpeak('Bạn muốn xem lại câu trước à? Cẩn thận đấy nhé! 🧐', 'neutral');
-    }
+    if (qIdx > 0) { qIdx--; renderQuiz(); }
 });
 
 nextEl.addEventListener('click', () => {
@@ -563,11 +561,8 @@ nextEl.addEventListener('click', () => {
     if (qIdx < quizData.length - 1) {
         qIdx++;
         renderQuiz();
-        // Milestone check
         if (mcMilestoneMsgs[qIdx + 1]) {
             mcSpeak(mcMilestoneMsgs[qIdx + 1], 'celebrate');
-        } else {
-            mcSpeak('Câu tiếp theo! Bạn sẵn sàng chưa? 🤩', 'neutral');
         }
     }
 });
