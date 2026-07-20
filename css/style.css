@@ -377,13 +377,17 @@ body {
 }
 
 /* ---- Quiz Card ---- */
+.quiz-main {
+    position: relative;
+}
 .quiz-card {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: var(--radius-lg);
-    padding: 40px 36px 36px;
+    padding: 44px 36px 36px;
     position: relative;
-    margin-top: 28px;
+    margin-top: 36px;
+    overflow: visible;
 }
 
 /* ---- MC Icon (sits on top of quiz card) ---- */
@@ -664,8 +668,8 @@ footer { background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.06
     .def-flow-arrow { transform: rotate(90deg); }
     .chatbot-panel { width: calc(100vw - 48px); right: -72px; max-height: 500px; }
     .quiz-layout { grid-template-columns: 1fr; }
-    .quiz-sidebar { position: static; order: 1; }
-    .quiz-main { order: 2; }
+    .quiz-sidebar { position: static; }
+    .quiz-card { margin-top: 36px; }
     .money-ladder { max-height: 200px; }
     .mc-avatar { width: 80px; height: 110px; }
     .mc-face { width: 64px; height: 64px; }

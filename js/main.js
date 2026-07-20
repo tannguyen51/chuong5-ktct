@@ -491,7 +491,10 @@ function updateMoneyLadder() {
 
 // ---- MC REACTIONS ----
 function mcSpeak(msg, mood) {
-    mcBubbleEl.querySelector('span').textContent = msg;
+    if (!mcBubbleEl || !mcIconEl || !mcFaceEl) return;
+    var span = mcBubbleEl.querySelector('span');
+    if (!span) return;
+    span.textContent = msg;
     mcIconEl.classList.remove('mc-happy', 'mc-sad', 'mc-neutral', 'mc-celebrate');
     mcFaceEl.textContent = mcFaces[mood] || mcFaces.neutral;
     switch (mood) {
@@ -508,22 +511,25 @@ function getRandomMsg(arr) {
 
 // ---- RENDER QUIZ ----
 function renderQuiz() {
-    const q = quizData[qIdx];
-    const answered = qAnswers[qIdx] !== null;
-    qEl.textContent = `Câu ${qIdx + 1}: ${q.q}`;
+    if (!quizData.length || !qEl || !oEl) return;
+    var q = quizData[qIdx];
+    if (!q) return;
+    var answered = qAnswers[qIdx] !== null;
+    qEl.textContent = 'Câu ' + (qIdx + 1) + ': ' + q.q;
     oEl.innerHTML = '';
 
-    q.opts.forEach((opt, i) => {
-        const btn = document.createElement('button');
+    q.opts.forEach(function(opt, i) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
         btn.className = 'quiz-option';
-        btn.textContent = `${String.fromCharCode(65 + i)}. ${opt}`;
+        btn.textContent = String.fromCharCode(65 + i) + '. ' + opt;
         if (qAnswers[qIdx] === i) {
             btn.classList.add('selected');
             if (qDone) btn.classList.add(i === q.ans ? 'correct' : 'incorrect');
         }
         if (qDone && i === q.ans && qAnswers[qIdx] !== i) btn.classList.add('correct');
         if (answered || qDone) btn.disabled = true;
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', function() {
             if (qDone || qAnswers[qIdx] !== null) return;
             qAnswers[qIdx] = i;
             if (i === q.ans) {
@@ -536,36 +542,38 @@ function renderQuiz() {
         oEl.appendChild(btn);
     });
 
-    prevEl.disabled = qIdx === 0;
-    nextEl.textContent = qIdx === quizData.length - 1 ? 'Nộp bài ✓' : 'Sau →';
-    countEl.textContent = `${qIdx + 1} / ${quizData.length}`;
-    progEl.style.width = `${((qIdx + 1) / quizData.length) * 100}%`;
+    if (prevEl) prevEl.disabled = qIdx === 0;
+    if (nextEl) nextEl.textContent = qIdx === quizData.length - 1 ? 'Nộp bài ✓' : 'Sau →';
+    if (countEl) countEl.textContent = (qIdx + 1) + ' / ' + quizData.length;
+    if (progEl) progEl.style.width = ((qIdx + 1) / quizData.length) * 100 + '%';
     updateMoneyLadder();
 
-    // Update MC icon for unanswered question
     if (!answered && !qDone) {
         mcSpeak('Chọn đáp án đúng nhé!', 'thinking');
     }
 }
 
 // ---- NAVIGATION ----
-prevEl.addEventListener('click', () => {
-    if (qIdx > 0) { qIdx--; renderQuiz(); }
-});
-
-nextEl.addEventListener('click', () => {
-    if (qIdx === quizData.length - 1 && !qDone) {
-        submitQuiz();
-        return;
-    }
-    if (qIdx < quizData.length - 1) {
-        qIdx++;
-        renderQuiz();
-        if (mcMilestoneMsgs[qIdx + 1]) {
-            mcSpeak(mcMilestoneMsgs[qIdx + 1], 'celebrate');
+if (prevEl) {
+    prevEl.addEventListener('click', function() {
+        if (qIdx > 0) { qIdx--; renderQuiz(); }
+    });
+}
+if (nextEl) {
+    nextEl.addEventListener('click', function() {
+        if (qIdx === quizData.length - 1 && !qDone) {
+            submitQuiz();
+            return;
         }
-    }
-});
+        if (qIdx < quizData.length - 1) {
+            qIdx++;
+            renderQuiz();
+            if (mcMilestoneMsgs[qIdx + 1]) {
+                mcSpeak(mcMilestoneMsgs[qIdx + 1], 'celebrate');
+            }
+        }
+    });
+}
 
 // ---- SUBMIT ----
 function submitQuiz() {
@@ -607,15 +615,15 @@ function submitQuiz() {
 
 // ---- RESTART ----
 function restartQuiz() {
+    if (!questionBank || !questionBank.length) return;
     quizData = pickRandomQuestions(questionBank, 20);
     qDone = false;
     qIdx = 0;
     qAnswers = Array(quizData.length).fill(null);
     currentScore = 0;
-    resEl.style.display = 'none';
+    if (resEl) resEl.style.display = 'none';
     mcSpeak(mcIntroMsg, 'neutral');
     renderQuiz();
-    window.scrollTo({ top: document.getElementById('quiz-sec').offsetTop - 70, behavior: 'smooth' });
 }
 
 // ---- INIT ----
